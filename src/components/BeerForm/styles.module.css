@@ -14,6 +14,14 @@
   @apply text-green-500;
 }
 
+.beerForm {
+  @apply flex flex-col w-full gap-4;
+}
+
+.beerLabel {
+  @apply flex flex-col;
+}
+
 .beersFormInput {
   @apply bg-zinc-800;
 }

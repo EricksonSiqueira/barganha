@@ -1,8 +1,7 @@
+import Header from '@/components/Header';
 import './globals.css';
 import type { Metadata } from 'next';
-import { Kalam, Inter } from 'next/font/google';
-
-const kalam = Kalam({ subsets: ['devanagari'], weight: ['400', '700'] });
+import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,13 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="p-3 border-b border-zinc-700 mb-2">
-          <div className="max-w-xl flex justify-center">
-            <h2 className={`${kalam.className} text-yellow-500 text-4xl`}>
-              Barganha
-            </h2>
-          </div>
-        </header>
+        <Header />
         {children}
       </body>
     </html>

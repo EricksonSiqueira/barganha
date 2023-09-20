@@ -53,12 +53,9 @@ export default function BeerForm() {
           ))}
         </ul>
       ) : null}
-      <form
-        className="flex flex-col w-full gap-4"
-        onSubmit={handleSubmit(submit)}
-      >
+      <form className={styles.beerForm} onSubmit={handleSubmit(submit)}>
         <div className={styles.beerFormInputsWrapper}>
-          <label htmlFor="price" className="flex flex-col">
+          <label htmlFor="price" className={styles.beerLabel}>
             <input
               {...register('price')}
               type="text"
@@ -69,7 +66,7 @@ export default function BeerForm() {
               <p className="text-red-700">{errors.price?.message}</p>
             ) : null}
           </label>
-          <label htmlFor="beerType" className="flex">
+          <label htmlFor="beerType" className={styles.beerLabel}>
             <select
               id="beerType"
               {...register('beerType')}

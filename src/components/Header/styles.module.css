@@ -1,0 +1,11 @@
+.header {
+  @apply p-3 border-b border-zinc-700 mb-2;
+}
+
+.headerWrapper {
+  @apply max-w-xl flex justify-center;
+}
+
+.headerTitle {
+  @apply text-yellow-500 text-4xl;
+}
