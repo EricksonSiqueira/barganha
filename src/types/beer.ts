@@ -6,7 +6,11 @@ export enum BeerEnum {
 
 export type BeerType = '350ml' | '473ml' | '1l';
 
-export interface Beer {
+export interface BeerFromForm {
   price: string;
   beerType: BeerType;
+}
+
+export interface Beer extends BeerFromForm {
+  id: string;
 }

@@ -2,10 +2,11 @@
 
 import { calculateCheapestBear } from '@/helpers/calculateCheapestBear';
 import { beerSchema } from '@/schemas/beerSchema';
-import { Beer } from '@/types/beer';
+import { Beer, BeerFromForm } from '@/types/beer';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
-import { set, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+import { v4 as uuidv4 } from 'uuid';
 import styles from './styles.module.css';
 
 export default function BeerForm() {
@@ -22,9 +23,16 @@ export default function BeerForm() {
   const [beers, setBeers] = useState<Beer[]>([]);
   const [cheapestBeer, setCheapestBeer] = useState<Beer>();
 
-  const submit = (beer: Beer) => {
-    setBeers([...beers, beer]);
-    setCheapestBeer(calculateCheapestBear([...beers, beer]));
+  const submit = (beer: BeerFromForm) => {
+    const beerId = uuidv4();
+
+    const newBeer: Beer = {
+      ...beer,
+      id: beerId,
+    };
+
+    setBeers([...beers, newBeer]);
+    setCheapestBeer(calculateCheapestBear([...beers, newBeer]));
     reset();
   };
 
@@ -33,12 +41,14 @@ export default function BeerForm() {
       {beers?.length ? (
         <ul className={styles.beersList}>
           {beers.map((beer, index) => (
-            <li key={index++} className={`${styles.beerLi}`}>
+            <li
+              key={index++}
+              className={`${styles.beerLi} ${
+                cheapestBeer?.id === beer.id ? styles.cheapestBeer : ''
+              }`}
+            >
               <span>R$ {beer.price}</span> - <span>{beer.beerType}</span>
-              {cheapestBeer?.beerType === beer.beerType &&
-              cheapestBeer?.price === beer.price ? (
-                <span>Mais barata!</span>
-              ) : null}
+              {cheapestBeer?.id === beer.id ? <span>Mais barata!</span> : null}
             </li>
           ))}
         </ul>
