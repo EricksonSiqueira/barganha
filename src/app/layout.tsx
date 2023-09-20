@@ -1,8 +1,10 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Kalam } from 'next/font/google';
+import { Kalam, Inter } from 'next/font/google';
 
 const kalam = Kalam({ subsets: ['devanagari'], weight: ['400', '700'] });
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,9 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={kalam.className}>
+      <body className={inter.className}>
         <header className="p-3 border-b border-zinc-700 mb-2">
-          <h1 className="text-yellow-500 text-4xl">Barganha</h1>
+          <h2 className={`${kalam.className} text-yellow-500 text-4xl`}>
+            Barganha
+          </h2>
         </header>
         {children}
       </body>
