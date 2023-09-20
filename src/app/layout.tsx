@@ -20,9 +20,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <header className="p-3 border-b border-zinc-700 mb-2">
-          <h2 className={`${kalam.className} text-yellow-500 text-4xl`}>
-            Barganha
-          </h2>
+          <div className="max-w-xl flex justify-center">
+            <h2 className={`${kalam.className} text-yellow-500 text-4xl`}>
+              Barganha
+            </h2>
+          </div>
         </header>
         {children}
       </body>
