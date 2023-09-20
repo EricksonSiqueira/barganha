@@ -3,7 +3,7 @@
 }
 
 .beersList {
-  @apply border border-zinc-500 rounded p-2 my-8;
+  @apply border border-zinc-500 rounded p-2 mb-8 mt-2;
 }
 
 .beerLi {
@@ -19,7 +19,7 @@
 }
 
 input.beersFormInput {
-  @apply border px-3 py-2 border-yellow-500 rounded placeholder:text-xs placeholder:text-zinc-400 focus:outline-none;
+  @apply w-full border px-1 py-1 border-yellow-500 rounded placeholder:text-sm placeholder:text-zinc-400 focus:outline-none;
 }
 
 select.beersFormInput {
