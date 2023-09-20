@@ -1,0 +1,35 @@
+.beersWrapper {
+  @apply flex flex-col p-2 text-zinc-200;
+}
+
+.beersList {
+  @apply border border-zinc-500 rounded p-2 my-8;
+}
+
+.beerLi {
+  @apply flex gap-2;
+}
+
+.selectedBeer {
+  @apply bg-green-500;
+}
+
+.beersFormInput {
+  @apply bg-zinc-800;
+}
+
+input.beersFormInput {
+  @apply border px-3 py-2 border-yellow-500 rounded placeholder:text-xs placeholder:text-zinc-400 focus:outline-none;
+}
+
+select.beersFormInput {
+  @apply outline-none;
+}
+
+.beerFormInputsWrapper {
+  @apply flex gap-2;
+}
+
+.beersFormBtn {
+  @apply w-full border border-yellow-500 rounded p-1 font-semibold;
+}
