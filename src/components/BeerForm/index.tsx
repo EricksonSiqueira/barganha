@@ -84,13 +84,6 @@ export default function BeerForm() {
         <button type="submit" className={styles.beersFormBtn}>
           Adicionar
         </button>
-        <button
-          type="button"
-          className={styles.beersFormBtn}
-          onClick={() => setCheapestBeer(calculateCheapestBear(beers))}
-        >
-          Calcular
-        </button>
       </form>
     </div>
   );
