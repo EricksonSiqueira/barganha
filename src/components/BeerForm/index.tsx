@@ -6,8 +6,10 @@ import { Beer, BeerFromForm } from '@/types/beer';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { v4 as uuidv4 } from 'uuid';
 import styles from './styles.module.css';
+import DefaultInput from '../DefaultInput';
+import { FaMoneyBill } from 'react-icons/fa';
+import { createBeerObject } from '@/helpers/createBeerObject';
 
 export default function BeerForm() {
   const {
@@ -24,12 +26,7 @@ export default function BeerForm() {
   const [cheapestBeer, setCheapestBeer] = useState<Beer>();
 
   const submit = (beer: BeerFromForm) => {
-    const beerId = uuidv4();
-
-    const newBeer: Beer = {
-      ...beer,
-      id: beerId,
-    };
+    const newBeer = createBeerObject(beer);
 
     setBeers([...beers, newBeer]);
     setCheapestBeer(calculateCheapestBear([...beers, newBeer]));
@@ -47,36 +44,42 @@ export default function BeerForm() {
                 cheapestBeer?.id === beer.id ? styles.cheapestBeer : ''
               }`}
             >
-              <span>R$ {beer.price}</span> - <span>{beer.beerType}</span>
-              {cheapestBeer?.id === beer.id ? <span>Mais barata!</span> : null}
+              <span>R$ {beer.price}</span> - <span>{beer.amountInMl}ml</span> -{' '}
+              <span>{beer.unit}</span> -{' '}
+              <span>{beer.pricePerMl.toFixed(4)}</span>
+              {/* {cheapestBeer?.id === beer.id ? <span>Mais barata!</span> : null} */}
             </li>
           ))}
         </ul>
       ) : null}
       <form className={styles.beerForm} onSubmit={handleSubmit(submit)}>
         <div className={styles.beerFormInputsWrapper}>
-          <label htmlFor="price" className={styles.beerLabel}>
-            <input
-              {...register('price')}
-              type="text"
-              className={styles.beersFormInput}
-              placeholder="4,99"
-            />
-            {errors.price?.message ? (
-              <p className="text-red-700">{errors.price?.message}</p>
-            ) : null}
-          </label>
-          <label htmlFor="beerType" className={styles.beerLabel}>
-            <select
-              id="beerType"
-              {...register('beerType')}
-              className={styles.beersFormInput}
-            >
-              <option value="350ml">Lata 350ml</option>
-              <option value="473ml">Latão 473ml</option>
-              <option value="1l">Litrão 1L</option>
-            </select>
-          </label>
+          <DefaultInput
+            Icon={<FaMoneyBill size="20" />}
+            error={''}
+            name="price"
+            labelText="Preço:"
+            placeholder="40,99"
+            register={register('price')}
+          />
+          <DefaultInput
+            Icon={<FaMoneyBill size="20" />}
+            error={''}
+            type="number"
+            labelText="Unidades:"
+            placeholder="12"
+            name="unit"
+            register={register('unit')}
+          />
+          <DefaultInput
+            Icon={<FaMoneyBill size="20" />}
+            error={''}
+            type="number"
+            labelText="Ml:"
+            placeholder="473"
+            name="amountInMl"
+            register={register('amountInMl')}
+          />
         </div>
         <button type="submit" className={styles.beersFormBtn}>
           Adicionar

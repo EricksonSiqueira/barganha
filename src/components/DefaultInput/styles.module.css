@@ -1,0 +1,27 @@
+.defaultInputFormNameLabel {
+  @apply flex flex-col gap-2;
+}
+
+.defaultInputFormNameTitle {
+  @apply text-sm text-zinc-200;
+}
+
+.defaultInputFormInputWrapper {
+  @apply flex w-full border border-yellow-500 rounded gap-2 bg-zinc-800;
+}
+
+.defaultInputFormIconWrapper {
+  @apply py-2.5 px-2 rounded-l bg-zinc-800;
+}
+
+.defaultInputFormIconWrapper svg {
+  @apply text-yellow-500;
+}
+
+.defaultInputFormNameInput {
+  @apply w-full px-1 py-1 bg-zinc-800 rounded placeholder:text-sm placeholder:text-zinc-400 focus:outline-none;
+}
+
+.defaultInputErrorMessage {
+  @apply text-sm text-red-500 font-medium;
+}

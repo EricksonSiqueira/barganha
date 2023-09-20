@@ -8,9 +8,11 @@ export type BeerType = '350ml' | '473ml' | '1l';
 
 export interface BeerFromForm {
   price: string;
-  beerType: BeerType;
+  unit: number;
+  amountInMl: number;
 }
 
 export interface Beer extends BeerFromForm {
   id: string;
+  pricePerMl: number;
 }
