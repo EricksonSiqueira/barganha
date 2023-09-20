@@ -10,8 +10,8 @@
   @apply flex gap-2;
 }
 
-.selectedBeer {
-  @apply bg-green-500;
+.cheapestBeer {
+  @apply text-green-500;
 }
 
 .beersFormInput {
