@@ -11,6 +11,7 @@ import DefaultInput from '../DefaultInput';
 import { FaMoneyBill } from 'react-icons/fa';
 import { GiBeerStein, GiDroplets } from 'react-icons/gi';
 import { createBeerObject } from '@/helpers/createBeerObject';
+import { toLocaleCurrency } from '@/helpers/toLocaleCurrency';
 
 export default function BeerForm() {
   const {
@@ -23,8 +24,30 @@ export default function BeerForm() {
     mode: 'onSubmit',
   });
 
-  const [beers, setBeers] = useState<Beer[]>([]);
-  const [cheapestBeer, setCheapestBeer] = useState<Beer>();
+  const [beers, setBeers] = useState<Beer[]>([
+    {
+      amountInMl: 473,
+      unit: 12,
+      price: '35,50',
+      id: '8868ec69-1745-4170-8eb5-ece39a74c98d',
+      pricePerMl: 0.006254404510218464,
+    },
+    {
+      amountInMl: 1000,
+      unit: 1,
+      price: '7,20',
+      id: 'fadc9bf0-68e3-4ce6-afc0-a2d9e3a85773',
+      pricePerMl: 0.0072,
+    },
+    {
+      amountInMl: 350,
+      unit: 6,
+      price: '32,30',
+      id: '7d86fa3e-5357-49b2-bc20-6e9d8c0e2b59',
+      pricePerMl: 0.015380952380952379,
+    },
+  ]);
+  const [cheapestBeer, setCheapestBeer] = useState<Beer>(beers[0]);
 
   const submit = (beer: BeerFromForm) => {
     const newBeer = createBeerObject(beer);
@@ -37,25 +60,27 @@ export default function BeerForm() {
   return (
     <div className={styles.beersWrapper}>
       {beers?.length ? (
-        <ul className={styles.beersList}>
-          {beers.map((beer, index) => (
-            <li
-              key={index++}
-              className={`${styles.beerLi} ${
-                cheapestBeer?.id === beer.id ? styles.cheapestBeer : ''
+        <table className={styles.beersTable}>
+          <thead className={styles.beersTableRow}>
+            <td>Preço</td>
+            <td>Uni</td>
+            <td>Ml</td>
+            <td>preço/L</td>
+          </thead>
+          {beers.map((beer) => (
+            <tr
+              className={`${styles.beersTableRow} ${
+                beer.id === cheapestBeer?.id ? styles.cheapestBeer : ''
               }`}
+              key={beer.id}
             >
-              <span>R$ {beer.price}</span> - <span>{beer.amountInMl}ml</span> -{' '}
-              <span>{beer.unit}</span> -{' '}
-              <span>
-                {(beer.pricePerMl * 1000).toLocaleString('pt-BR', {
-                  style: 'currency',
-                  currency: 'BRL',
-                })}
-              </span>
-            </li>
+              <td>{beer.price}</td>
+              <td>{beer.unit}</td>
+              <td>{beer.amountInMl}</td>
+              <td>{toLocaleCurrency(beer.pricePerMl * 1000)}</td>
+            </tr>
           ))}
-        </ul>
+        </table>
       ) : null}
       <form className={styles.beerForm} onSubmit={handleSubmit(submit)}>
         <div className={styles.beerFormInputsWrapper}>

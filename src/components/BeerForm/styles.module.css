@@ -2,16 +2,27 @@
   @apply flex flex-col p-2 text-zinc-200;
 }
 
+.cheapestBeer {
+  @apply text-green-500;
+}
+
+.beersTable {
+  @apply flex flex-col justify-between p-2 bg-zinc-700 w-full mb-4 border border-zinc-600 gap-1;
+}
+
+.beersTableRow {
+  @apply flex justify-between w-full;
+}
+.beersTableRow td {
+  @apply w-1/4;
+}
+
 .beersList {
   @apply border border-zinc-500 rounded p-2 mb-8 mt-2;
 }
 
 .beerLi {
   @apply flex gap-2;
-}
-
-.cheapestBeer {
-  @apply text-green-500;
 }
 
 .beerForm {
