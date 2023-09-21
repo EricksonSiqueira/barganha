@@ -52,7 +52,6 @@ export default function BeerForm() {
                   currency: 'BRL',
                 })}
               </span>
-              {/* {cheapestBeer?.id === beer.id ? <span>Mais barata!</span> : null} */}
             </li>
           ))}
         </ul>
