@@ -61,25 +61,29 @@ export default function BeerForm() {
     <div className={styles.beersWrapper}>
       {beers?.length ? (
         <table className={styles.beersTable}>
-          <thead className={styles.beersTableRow}>
-            <td>Preço</td>
-            <td>Uni</td>
-            <td>Ml</td>
-            <td>preço/L</td>
-          </thead>
-          {beers.map((beer) => (
-            <tr
-              className={`${styles.beersTableRow} ${
-                beer.id === cheapestBeer?.id ? styles.cheapestBeer : ''
-              }`}
-              key={beer.id}
-            >
-              <td>{beer.price}</td>
-              <td>{beer.unit}</td>
-              <td>{beer.amountInMl}</td>
-              <td>{toLocaleCurrency(beer.pricePerMl * 1000)}</td>
+          <thead>
+            <tr className={styles.beersTableRow}>
+              <td>Preço</td>
+              <td>Uni</td>
+              <td>Ml</td>
+              <td>preço/L</td>
             </tr>
-          ))}
+          </thead>
+          <tbody>
+            {beers.map((beer) => (
+              <tr
+                className={`${styles.beersTableRow} ${
+                  beer.id === cheapestBeer?.id ? styles.cheapestBeer : ''
+                }`}
+                key={beer.id}
+              >
+                <td>{beer.price}</td>
+                <td>{beer.unit}</td>
+                <td>{beer.amountInMl}</td>
+                <td>{toLocaleCurrency(beer.pricePerMl * 1000)}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       ) : null}
       <form className={styles.beerForm} onSubmit={handleSubmit(submit)}>
