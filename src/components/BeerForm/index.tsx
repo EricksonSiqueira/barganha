@@ -46,7 +46,12 @@ export default function BeerForm() {
             >
               <span>R$ {beer.price}</span> - <span>{beer.amountInMl}ml</span> -{' '}
               <span>{beer.unit}</span> -{' '}
-              <span>{beer.pricePerMl.toFixed(4)}</span>
+              <span>
+                {(beer.pricePerMl * 1000).toLocaleString('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                })}
+              </span>
               {/* {cheapestBeer?.id === beer.id ? <span>Mais barata!</span> : null} */}
             </li>
           ))}
