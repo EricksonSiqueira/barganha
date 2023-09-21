@@ -1,5 +1,5 @@
 .beersWrapper {
-  @apply flex flex-col p-2 text-zinc-200;
+  @apply flex flex-col text-zinc-200;
 }
 
 .cheapestBeer {

@@ -12,6 +12,7 @@ import { FaMoneyBill } from 'react-icons/fa';
 import { GiBeerStein, GiDroplets } from 'react-icons/gi';
 import { createBeerObject } from '@/helpers/createBeerObject';
 import { toLocaleCurrency } from '@/helpers/toLocaleCurrency';
+import BeerList from '../BeerList';
 
 export default function BeerForm() {
   const {
@@ -59,33 +60,6 @@ export default function BeerForm() {
 
   return (
     <div className={styles.beersWrapper}>
-      {beers?.length ? (
-        <table className={styles.beersTable}>
-          <thead>
-            <tr className={styles.beersTableRow}>
-              <td>Preço</td>
-              <td>Uni</td>
-              <td>Ml</td>
-              <td>preço/L</td>
-            </tr>
-          </thead>
-          <tbody>
-            {beers.map((beer) => (
-              <tr
-                className={`${styles.beersTableRow} ${
-                  beer.id === cheapestBeer?.id ? styles.cheapestBeer : ''
-                }`}
-                key={beer.id}
-              >
-                <td>{beer.price}</td>
-                <td>{beer.unit}</td>
-                <td>{beer.amountInMl}</td>
-                <td>{toLocaleCurrency(beer.pricePerMl * 1000)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : null}
       <form className={styles.beerForm} onSubmit={handleSubmit(submit)}>
         <div className={styles.beerFormInputsWrapper}>
           <DefaultInput
@@ -119,6 +93,7 @@ export default function BeerForm() {
           Adicionar
         </button>
       </form>
+      <BeerList beers={beers} />
     </div>
   );
 }
