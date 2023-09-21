@@ -4,9 +4,11 @@ import { Beer, BeerFromForm } from '@/types/beer';
 export const createBeerObject = (beer: BeerFromForm) => {
   const beerId = uuidv4();
 
-  const beerPrice = parseFloat(beer.price);
+  const price = Number(beer.price.replace(',', '.'));
 
-  const beerPricePerMl = beerPrice / beer.amountInMl;
+  const beerUnitPrice = price / beer.unit;
+
+  const beerPricePerMl = beerUnitPrice / beer.amountInMl;
 
   const newBeer: Beer = {
     ...beer,
