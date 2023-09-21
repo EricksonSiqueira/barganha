@@ -9,6 +9,7 @@ import { useForm } from 'react-hook-form';
 import styles from './styles.module.css';
 import DefaultInput from '../DefaultInput';
 import { FaMoneyBill } from 'react-icons/fa';
+import { GiBeerStein, GiDroplets } from 'react-icons/gi';
 import { createBeerObject } from '@/helpers/createBeerObject';
 
 export default function BeerForm() {
@@ -67,7 +68,7 @@ export default function BeerForm() {
             register={register('price')}
           />
           <DefaultInput
-            Icon={<FaMoneyBill size="20" />}
+            Icon={<GiBeerStein size="20" />}
             error={''}
             type="number"
             labelText="Unidades:"
@@ -76,7 +77,7 @@ export default function BeerForm() {
             register={register('unit')}
           />
           <DefaultInput
-            Icon={<FaMoneyBill size="20" />}
+            Icon={<GiDroplets size="20" />}
             error={''}
             type="number"
             labelText="Ml:"
