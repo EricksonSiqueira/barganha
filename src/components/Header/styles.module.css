@@ -1,11 +1,15 @@
 .header {
-  @apply p-3 border-b border-zinc-700 mb-2;
+  @apply py-3 px-4 border-b border-zinc-700 mb-2;
 }
 
 .headerWrapper {
-  @apply max-w-xl flex justify-center;
+  @apply max-w-xl flex justify-between mx-auto;
 }
 
 .headerTitle {
   @apply text-yellow-500 text-4xl;
+}
+
+.headerNav {
+  @apply flex items-center justify-center gap-4 h-full text-green-500;
 }
