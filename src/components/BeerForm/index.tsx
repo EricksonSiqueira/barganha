@@ -30,9 +30,11 @@ export default function BeerForm() {
 
   const removeBeer = (beerId: string) => {
     const newBeers = beers.filter((beer) => beer.id !== beerId);
-
     setBeers(newBeers);
-    setCheapestBeer(calculateCheapestBear(newBeers));
+
+    if (newBeers.length > 0) {
+      setCheapestBeer(calculateCheapestBear(newBeers));
+    }
   };
 
   const submit = (beer: BeerFromForm) => {
