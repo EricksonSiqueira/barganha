@@ -29,7 +29,10 @@ export default function BeerForm() {
   const [cheapestBeer, setCheapestBeer] = useState<Beer>();
 
   const removeBeer = (beerId: string) => {
-    setBeers(beers.filter((beer) => beer.id !== beerId));
+    const newBeers = beers.filter((beer) => beer.id !== beerId);
+
+    setBeers(newBeers);
+    setCheapestBeer(calculateCheapestBear(newBeers));
   };
 
   const submit = (beer: BeerFromForm) => {
