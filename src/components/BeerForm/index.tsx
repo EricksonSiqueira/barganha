@@ -53,6 +53,10 @@ export default function BeerForm() {
   ]);
   const [cheapestBeer, setCheapestBeer] = useState<Beer>(beers[0]);
 
+  const removeBeer = (beerId: string) => {
+    setBeers(beers.filter((beer) => beer.id !== beerId));
+  };
+
   const submit = (beer: BeerFromForm) => {
     const newBeer = createBeerObject(beer);
 
@@ -107,7 +111,11 @@ export default function BeerForm() {
           Adicionar
         </button>
       </form>
-      <BeerList beers={beers} cheapestBeer={cheapestBeer} />
+      <BeerList
+        beers={beers}
+        cheapestBeer={cheapestBeer}
+        removeBeer={removeBeer}
+      />
     </div>
   );
 }

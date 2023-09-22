@@ -1,9 +1,17 @@
 .beerCardWrapper {
-  @apply flex items-center justify-between w-full border border-zinc-700 rounded-lg p-2 gap-4;
+  @apply flex items-center justify-between w-full border border-zinc-700 rounded-lg p-2 pr-4 gap-2 relative;
 }
 
 .beerCardWrapper svg {
   @apply text-yellow-500;
+}
+
+.cheapestBeerBadge {
+  @apply absolute -top-2 -right-1 rounded-full bg-zinc-700 p-2;
+}
+
+button.removeBeer {
+  @apply absolute top-2 left-2;
 }
 
 .beerInfoWrapper {
@@ -11,7 +19,7 @@
 }
 
 .cheapestBeerWrapper {
-  @apply text-green-500;
+  @apply border-green-500;
 }
 
 div.cheapestBeerWrapper svg {
