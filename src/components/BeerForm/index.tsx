@@ -10,6 +10,7 @@ import styles from './styles.module.css';
 import DefaultInput from '../DefaultInput';
 import { FaMoneyBill } from 'react-icons/fa';
 import { GiBeerStein, GiDroplets } from 'react-icons/gi';
+import { BiSolidLabel } from 'react-icons/bi';
 import { createBeerObject } from '@/helpers/createBeerObject';
 import BeerList from '../BeerList';
 
@@ -92,7 +93,7 @@ export default function BeerForm() {
           />
         </div>
         <DefaultInput
-          Icon={<GiDroplets size="20" />}
+          Icon={<BiSolidLabel size="20" />}
           error={''}
           type="text"
           labelText="Nome"
