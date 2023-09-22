@@ -11,7 +11,6 @@ import DefaultInput from '../DefaultInput';
 import { FaMoneyBill } from 'react-icons/fa';
 import { GiBeerStein, GiDroplets } from 'react-icons/gi';
 import { createBeerObject } from '@/helpers/createBeerObject';
-import { toLocaleCurrency } from '@/helpers/toLocaleCurrency';
 import BeerList from '../BeerList';
 
 export default function BeerForm() {
@@ -93,7 +92,7 @@ export default function BeerForm() {
           Adicionar
         </button>
       </form>
-      <BeerList beers={beers} />
+      <BeerList beers={beers} cheapestBeer={cheapestBeer} />
     </div>
   );
 }

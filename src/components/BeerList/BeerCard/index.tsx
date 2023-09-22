@@ -5,15 +5,20 @@ import { FaBeer } from 'react-icons/fa';
 
 export interface BeerCardProps {
   beer: Beer;
+  cheapestBeerId: string;
 }
 
-export default function BeerCard({ beer }: BeerCardProps) {
+export default function BeerCard({ beer, cheapestBeerId }: BeerCardProps) {
   const beerPriceInNumber = Number(beer.price.replace(',', '.'));
 
   return (
-    <div className={styles.beerCardWrapper}>
+    <div
+      className={`${styles.beerCardWrapper} ${
+        beer.id === cheapestBeerId ? styles.cheapestBeerWrapper : ''
+      }`}
+    >
       <div>
-        <FaBeer size={112} color="#EAB308" />
+        <FaBeer size={112} />
       </div>
       <div className={styles.beerInfoWrapper}>
         <h2>Nome da cerveja </h2>
