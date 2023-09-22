@@ -21,7 +21,7 @@ export default function BeerCard({ beer, cheapestBeerId }: BeerCardProps) {
         <GiBeerBottle size={112} />
       </div>
       <div className={styles.beerInfoWrapper}>
-        <h2>Nome da cerveja </h2>
+        <h2>{beer.name}</h2>
         <p>
           <span>Total:</span>
           <span>{toLocaleCurrency(beerPriceInNumber)}</span>

@@ -8,6 +8,7 @@ export interface BeerFromForm {
   price: string;
   unit: number;
   amountInMl: number;
+  name?: string;
 }
 
 export interface Beer extends BeerFromForm {
