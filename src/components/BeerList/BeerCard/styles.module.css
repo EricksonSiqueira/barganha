@@ -7,7 +7,7 @@
 }
 
 .cheapestBeerBadge {
-  @apply absolute -top-2 -right-1 rounded-full bg-zinc-700 p-2;
+  @apply absolute -top-3 -right-2 rounded-full bg-zinc-700 p-2;
 }
 
 button.removeBeer {
