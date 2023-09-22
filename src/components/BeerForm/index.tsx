@@ -56,8 +56,10 @@ export default function BeerForm() {
   const submit = (beer: BeerFromForm) => {
     const newBeer = createBeerObject(beer);
 
-    setBeers([...beers, newBeer]);
-    setCheapestBeer(calculateCheapestBear([...beers, newBeer]));
+    const newBeers = [newBeer, ...beers];
+
+    setBeers(newBeers);
+    setCheapestBeer(calculateCheapestBear(newBeers));
     reset();
   };
 
