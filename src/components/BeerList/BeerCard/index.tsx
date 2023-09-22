@@ -8,7 +8,7 @@ import { iconByLiquidAmount } from '@/helpers/iconByLiquidAmount';
 
 export interface BeerCardProps {
   beer: Beer;
-  cheapestBeerId: string;
+  cheapestBeerId: string | undefined;
   removeBeer: (beerId: string) => void;
 }
 

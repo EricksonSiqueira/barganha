@@ -4,7 +4,7 @@ import BeerCard from './BeerCard';
 
 export interface BeerListProps {
   beers: Beer[];
-  cheapestBeer: Beer;
+  cheapestBeer: Beer | undefined;
   removeBeer: (beerId: string) => void;
 }
 export default function BeerList({
@@ -17,7 +17,7 @@ export default function BeerList({
       {beers.map((beer) => (
         <BeerCard
           beer={beer}
-          cheapestBeerId={cheapestBeer.id}
+          cheapestBeerId={cheapestBeer?.id}
           key={beer.id}
           removeBeer={removeBeer}
         />

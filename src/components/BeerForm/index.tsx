@@ -25,33 +25,8 @@ export default function BeerForm() {
     mode: 'onSubmit',
   });
 
-  const [beers, setBeers] = useState<Beer[]>([
-    {
-      amountInMl: 473,
-      unit: 12,
-      price: '35,50',
-      id: '8868ec69-1745-4170-8eb5-ece39a74c98d',
-      pricePerMl: 0.006254404510218464,
-      name: 'Skol pilsen',
-    },
-    {
-      amountInMl: 1000,
-      unit: 1,
-      price: '7,20',
-      id: 'fadc9bf0-68e3-4ce6-afc0-a2d9e3a85773',
-      pricePerMl: 0.0072,
-      name: 'Antarctica subzero',
-    },
-    {
-      amountInMl: 350,
-      unit: 6,
-      price: '32,30',
-      id: '7d86fa3e-5357-49b2-bc20-6e9d8c0e2b59',
-      pricePerMl: 0.015380952380952379,
-      name: 'Heineken',
-    },
-  ]);
-  const [cheapestBeer, setCheapestBeer] = useState<Beer>(beers[0]);
+  const [beers, setBeers] = useState<Beer[]>([]);
+  const [cheapestBeer, setCheapestBeer] = useState<Beer>();
 
   const removeBeer = (beerId: string) => {
     setBeers(beers.filter((beer) => beer.id !== beerId));
