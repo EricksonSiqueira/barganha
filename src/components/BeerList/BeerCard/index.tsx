@@ -2,6 +2,8 @@ import { toLocaleCurrency } from '@/helpers/toLocaleCurrency';
 import styles from './styles.module.css';
 import { Beer } from '@/types/beer';
 import { GiBeerBottle } from 'react-icons/gi';
+import { transformLiquidUnit } from '@/helpers/transformLiquidUnit';
+import { iconByLiquidAmount } from '@/helpers/iconByLiquidAmount';
 
 export interface BeerCardProps {
   beer: Beer;
@@ -10,6 +12,7 @@ export interface BeerCardProps {
 
 export default function BeerCard({ beer, cheapestBeerId }: BeerCardProps) {
   const beerPriceInNumber = Number(beer.price.replace(',', '.'));
+  const BeerIcon = iconByLiquidAmount(beer.amountInMl);
 
   return (
     <div
@@ -18,7 +21,7 @@ export default function BeerCard({ beer, cheapestBeerId }: BeerCardProps) {
       }`}
     >
       <div>
-        <GiBeerBottle size={112} />
+        <BeerIcon size={112} />
       </div>
       <div className={styles.beerInfoWrapper}>
         <h2>{beer.name}</h2>
@@ -32,7 +35,7 @@ export default function BeerCard({ beer, cheapestBeerId }: BeerCardProps) {
         </p>
         <p>
           <span>Quantidade:</span>
-          <span>{beer.amountInMl}ml</span>
+          <span>{transformLiquidUnit(beer.amountInMl)}</span>
         </p>
         <p>
           <span>Preço por litro:</span>
