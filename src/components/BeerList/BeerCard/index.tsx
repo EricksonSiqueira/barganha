@@ -1,7 +1,7 @@
 import { toLocaleCurrency } from '@/helpers/toLocaleCurrency';
 import styles from './styles.module.css';
 import { Beer } from '@/types/beer';
-import { FaBeer } from 'react-icons/fa';
+import { GiBeerBottle } from 'react-icons/gi';
 
 export interface BeerCardProps {
   beer: Beer;
@@ -18,7 +18,7 @@ export default function BeerCard({ beer, cheapestBeerId }: BeerCardProps) {
       }`}
     >
       <div>
-        <FaBeer size={112} />
+        <GiBeerBottle size={112} />
       </div>
       <div className={styles.beerInfoWrapper}>
         <h2>Nome da cerveja </h2>
