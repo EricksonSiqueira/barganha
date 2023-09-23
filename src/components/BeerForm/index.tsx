@@ -22,7 +22,10 @@ export default function BeerForm() {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(beerSchema),
-    mode: 'onSubmit',
+    mode: 'onBlur',
+    resetOptions: {
+      keepTouched: false,
+    },
   });
 
   const [beers, setBeers] = useState<Beer[]>([]);
@@ -53,7 +56,7 @@ export default function BeerForm() {
         <div className={styles.beerFormInputsWrapper}>
           <DefaultInput
             Icon={<FaMoneyBill size="20" />}
-            error={''}
+            error={errors.price?.message}
             name="price"
             labelText="Preço*"
             placeholder="40,99"
@@ -61,7 +64,7 @@ export default function BeerForm() {
           />
           <DefaultInput
             Icon={<GiBeerStein size="20" />}
-            error={''}
+            error={errors.unit?.message}
             type="number"
             labelText="Unidades*"
             placeholder="12"
@@ -70,7 +73,7 @@ export default function BeerForm() {
           />
           <DefaultInput
             Icon={<GiDroplets size="20" />}
-            error={''}
+            error={errors.amountInMl?.message}
             type="number"
             labelText="Ml*"
             placeholder="473"
@@ -80,7 +83,6 @@ export default function BeerForm() {
         </div>
         <DefaultInput
           Icon={<BiSolidLabel size="20" />}
-          error={''}
           type="text"
           labelText="Nome"
           placeholder="Skol pilsen"

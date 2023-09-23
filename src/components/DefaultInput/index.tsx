@@ -8,7 +8,7 @@ export interface DefaultInputProps
   labelText?: string;
   name: string;
   register: UseFormRegisterReturn;
-  error: string | undefined;
+  error?: string | undefined;
   labelClassName?: string;
 }
 
