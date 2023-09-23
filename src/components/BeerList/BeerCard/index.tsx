@@ -43,7 +43,7 @@ export default function BeerCard({
         <BeerIcon size={112} />
       </div>
       <div className={styles.beerInfoWrapper}>
-        <h2>{beer.name}</h2>
+        <h2 className={styles.beerTitle}>{beer.name}</h2>
         <p>
           <span>Total:</span>
           <span>{toLocaleCurrency(beerPriceInNumber)}</span>

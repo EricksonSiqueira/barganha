@@ -15,7 +15,7 @@ button.removeBeer {
 }
 
 .beerInfoWrapper {
-  @apply flex flex-col gap-1 w-full py-2;
+  @apply flex flex-col gap-1 w-full py-2 max-w-[calc(100%-120px)];
 }
 
 .cheapestBeerWrapper {
@@ -31,5 +31,5 @@ div.cheapestBeerWrapper svg {
 }
 
 .beerInfoWrapper h2 {
-  @apply w-full text-center font-bold mb-1;
+  @apply w-full text-center font-bold mb-1 truncate;
 }
