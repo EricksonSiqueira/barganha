@@ -4,7 +4,7 @@ import { calculateCheapestBear } from '@/helpers/calculateCheapestBear';
 import { beerSchema } from '@/schemas/beerSchema';
 import { Beer, BeerFromForm } from '@/types/beer';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './styles.module.css';
 import DefaultInput from '../DefaultInput';
@@ -29,12 +29,21 @@ export default function BeerForm() {
     },
   });
 
-  const [beers, setBeers] = useState<Beer[]>([]);
+  const { value: beers, updateLocalStorage } = useLocalStorage<Beer[]>(
+    'beers',
+    []
+  );
   const [cheapestBeer, setCheapestBeer] = useState<Beer>();
+
+  useEffect(() => {
+    if (beers.length === 0) return;
+    setCheapestBeer(calculateCheapestBear(beers));
+  }, [beers]);
+  // const [beers, setBeers] = useState<Beer[]>([]);
 
   const removeBeer = (beerId: string) => {
     const newBeers = beers.filter((beer) => beer.id !== beerId);
-    setBeers(newBeers);
+    updateLocalStorage(newBeers);
 
     if (newBeers.length > 0) {
       setCheapestBeer(calculateCheapestBear(newBeers));
@@ -46,7 +55,7 @@ export default function BeerForm() {
 
     const newBeers = [newBeer, ...beers];
 
-    setBeers(newBeers);
+    updateLocalStorage(newBeers);
     setCheapestBeer(calculateCheapestBear(newBeers));
     reset();
   };
