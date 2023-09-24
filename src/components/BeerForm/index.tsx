@@ -75,7 +75,7 @@ export default function BeerForm() {
             Icon={<GiDroplets size="20" />}
             error={errors.amountInMl?.message}
             type="number"
-            labelText="Ml*"
+            labelText="ML*"
             placeholder="473"
             name="amountInMl"
             register={register('amountInMl')}
