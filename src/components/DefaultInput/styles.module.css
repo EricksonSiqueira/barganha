@@ -19,7 +19,7 @@
 }
 
 .defaultInputFormNameInput {
-  @apply w-full px-1 py-1 bg-zinc-800 rounded placeholder:text-sm placeholder:text-zinc-400 focus:outline-none;
+  @apply w-full px-1 py-1 bg-zinc-800 rounded placeholder:text-sm placeholder:text-zinc-100 placeholder:opacity-10 focus:outline-none;
 }
 
 .defaultInputErrorMessage {
