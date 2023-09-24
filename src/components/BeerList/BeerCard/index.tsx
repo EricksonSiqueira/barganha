@@ -23,10 +23,12 @@ export default function BeerCard({
 
   return (
     <div
-      className={`${styles.beerCardWrapper} ${
-        isTheCheapestBeer ? styles.cheapestBeerWrapper : ''
+      className={`${styles.beerCard} ${
+        isTheCheapestBeer ? styles.cheapestBeerCard : ''
       }`}
     >
+      <h2 className={styles.beerTitle}>{beer.name}</h2>
+
       {isTheCheapestBeer ? (
         <div className={styles.cheapestBeerBadge}>
           <IoIosBeer color="#22C55E" size={24} />
@@ -37,33 +39,34 @@ export default function BeerCard({
         className={styles.removeBeer}
         onClick={() => removeBeer(beer.id)}
       >
-        <AiOutlineClose size={24} color="#EAB308" />
+        <AiOutlineClose size={20} color="#EF4444" />
       </button>
-      <div>
-        <BeerIcon size={112} />
-      </div>
-      <div className={styles.beerInfoWrapper}>
-        <h2 className={styles.beerTitle}>{beer.name}</h2>
-        <p>
-          <span>Total:</span>
-          <span>{toLocaleCurrency(beerPriceInNumber)}</span>
-        </p>
-        <p>
-          <span>Unidades:</span>
-          <span>{beer.unit}</span>
-        </p>
-        <p>
-          <span>Quantidade:</span>
-          <span>{transformLiquidUnit(beer.amountInMl)}</span>
-        </p>
-        <p>
-          <span>Preço por litro:</span>
-          <span>{toLocaleCurrency(beer.pricePerMl * 1000)}</span>
-        </p>
-        <p>
-          <span>Preço por unidade:</span>
-          <span>{toLocaleCurrency(beerPriceInNumber / beer.unit)}</span>
-        </p>
+      <div className={styles.beerCardWrapper}>
+        <div>
+          <BeerIcon size={112} />
+        </div>
+        <div className={styles.beerInfoWrapper}>
+          <p>
+            <span className={styles.beerInfoLabel}>Total:</span>
+            <span>{toLocaleCurrency(beerPriceInNumber)}</span>
+          </p>
+          <p>
+            <span className={styles.beerInfoLabel}>Unidades:</span>
+            <span>{beer.unit}</span>
+          </p>
+          <p>
+            <span className={styles.beerInfoLabel}>Quantidade:</span>
+            <span>{transformLiquidUnit(beer.amountInMl)}</span>
+          </p>
+          <p>
+            <span className={styles.beerInfoLabel}>Preço por litro:</span>
+            <span>{toLocaleCurrency(beer.pricePerMl * 1000)}</span>
+          </p>
+          <p>
+            <span className={styles.beerInfoLabel}>Preço por unidade:</span>
+            <span>{toLocaleCurrency(beerPriceInNumber / beer.unit)}</span>
+          </p>
+        </div>
       </div>
     </div>
   );
