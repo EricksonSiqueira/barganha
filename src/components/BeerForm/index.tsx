@@ -13,6 +13,7 @@ import { GiBeerStein, GiDroplets } from 'react-icons/gi';
 import { BiSolidLabel } from 'react-icons/bi';
 import { createBeerObject } from '@/helpers/createBeerObject';
 import BeerList from '../BeerList';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 
 export default function BeerForm() {
   const {
@@ -58,7 +59,7 @@ export default function BeerForm() {
             Icon={<FaMoneyBill size="20" />}
             error={errors.price?.message}
             name="price"
-            labelText="Preço*"
+            labelText="Preço total*"
             placeholder="40,99"
             register={register('price')}
           />
@@ -66,7 +67,7 @@ export default function BeerForm() {
             Icon={<GiBeerStein size="20" />}
             error={errors.unit?.message}
             type="number"
-            labelText="Unidades*"
+            labelText="Quantidade*"
             placeholder="12"
             name="unit"
             register={register('unit')}
@@ -84,7 +85,7 @@ export default function BeerForm() {
         <DefaultInput
           Icon={<BiSolidLabel size="20" />}
           type="text"
-          labelText="Nome"
+          labelText="Descrição"
           placeholder="Skol pilsen"
           name="name"
           register={register('name')}
