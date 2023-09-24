@@ -19,7 +19,7 @@ button.removeBeer {
 }
 
 .cheapestBeerWrapper {
-  @apply border-green-500 bg-zinc-200;
+  @apply border-green-500;
 }
 
 div.cheapestBeerWrapper svg {
