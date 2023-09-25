@@ -27,7 +27,9 @@ export default function BeerCard({
         isTheCheapestBeer ? styles.cheapestBeerCard : ''
       }`}
     >
-      <h2 className={styles.beerTitle}>{beer.name}</h2>
+      <div className={styles.beerTitleWrapper}>
+        <h2 className={styles.beerTitle}>{beer.name}</h2>
+      </div>
 
       {isTheCheapestBeer ? (
         <div className={styles.cheapestBeerBadge}>
