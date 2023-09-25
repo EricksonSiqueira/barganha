@@ -2,12 +2,12 @@
   @apply flex flex-col items-center border border-yellow-500 rounded-lg relative;
 }
 
-.beerCard h2 {
-  @apply w-full text-center font-bold truncate capitalize text-yellow-500;
+.beerTitleWrapper {
+  @apply h-6 max-w-[calc(100%-65px)] overflow-hidden mt-2;
 }
 
-.beerTitleWrapper {
-  @apply h-6;
+.beerTitleWrapper h2 {
+  @apply w-full text-center font-bold truncate capitalize text-yellow-500;
 }
 
 div.cheapestBeerCard {
