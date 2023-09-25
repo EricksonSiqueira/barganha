@@ -14,6 +14,7 @@ import { BiSolidLabel } from 'react-icons/bi';
 import { createBeerObject } from '@/helpers/createBeerObject';
 import BeerList from '../BeerList';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
+import { orderByPriceInMl } from '@/helpers/orderByPriceInMl';
 
 export default function BeerForm() {
   const {
@@ -39,24 +40,33 @@ export default function BeerForm() {
     if (beers.length === 0) return;
     setCheapestBeer(calculateCheapestBear(beers));
   }, [beers]);
-  // const [beers, setBeers] = useState<Beer[]>([]);
 
   const removeBeer = (beerId: string) => {
     const newBeers = beers.filter((beer) => beer.id !== beerId);
-    updateLocalStorage(newBeers);
+
+    const newBeersSortedByPriceInMl = orderByPriceInMl(newBeers);
+
+    updateLocalStorage(newBeersSortedByPriceInMl);
 
     if (newBeers.length > 0) {
-      setCheapestBeer(calculateCheapestBear(newBeers));
+      setCheapestBeer(calculateCheapestBear(newBeersSortedByPriceInMl));
     }
   };
 
-  const submit = (beer: BeerFromForm) => {
+  const submit = (
+    beer: BeerFromForm,
+    event: React.BaseSyntheticEvent<object, any, any> | undefined
+  ) => {
+    event?.preventDefault();
+
     const newBeer = createBeerObject(beer);
 
     const newBeers = [newBeer, ...beers];
 
-    updateLocalStorage(newBeers);
-    setCheapestBeer(calculateCheapestBear(newBeers));
+    const newBeersSortedByPriceInMl = orderByPriceInMl(newBeers);
+
+    updateLocalStorage(newBeersSortedByPriceInMl);
+    setCheapestBeer(calculateCheapestBear(newBeersSortedByPriceInMl));
     reset();
   };
 
