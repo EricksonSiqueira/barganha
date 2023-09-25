@@ -1,3 +1,23 @@
 .beerListWrapper {
   @apply flex flex-col gap-2 mt-4;
 }
+
+.beersNotFound {
+  @apply flex flex-col items-center gap-2 w-full mt-2;
+}
+
+.beersNotFoundIconsWrapper {
+  @apply relative;
+}
+
+.beersNotFoundCloseIcon {
+  @apply absolute bottom-0 right-8;
+}
+
+.beersNotFoundTextWrapper {
+  @apply flex flex-col items-center;
+}
+
+.beersNotFoundTextWrapper h2 {
+  @apply text-lg font-bold;
+}
