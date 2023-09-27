@@ -5,10 +5,10 @@ export const beerSchema = Yup.object().shape({
     .required('Preço é obrigatório')
     .matches(/^\d+(\,\d{1,2})?$/, 'O preço deve ser um valor válido em reais'),
   unit: Yup.number()
-    .typeError('Unidades são obrigatórias')
-    .required('Unidades são obrigatórias'),
+    .typeError('Quantidade é obrigatório')
+    .required('Quantidade é obrigatório'),
   amountInMl: Yup.number()
-    .typeError('Quantidade em ML é obrigatória')
-    .required('Quantidade em ML é obrigatória'),
+    .typeError('Quantidade em ML é obrigatório')
+    .required('Quantidade em ML é obrigatório'),
   name: Yup.string().optional(),
 });
