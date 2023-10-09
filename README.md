@@ -7,6 +7,7 @@ Project made with the goal of saving people time when they want to buy some beer
 - <img align="center" alt="Erickson-Next" height="20" width="20" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg"> Next.js 13 (With Server Components)
 - <img align="center" alt="Erickson-Tailwind" height="20" width="20" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-plain.svg"> Tailwindcss
 - Yup
+- React hook form
 
 ## 🏃 How to run it
 
